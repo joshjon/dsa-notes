@@ -12,4 +12,4 @@ def problem(arg):
 if __name__ == '__main__':
     data = "leetcode"
     want = False
-    assert_answer(want, problem(data))
+    assert_answer(want, problem(data), data)
