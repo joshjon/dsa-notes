@@ -14,9 +14,14 @@ def check_if_pangram(sentence: str) -> bool:
     Output: true
     """
 
-    return False
+    num_letters = 26
+    seen = set()
 
+    for letter in sentence:
+        seen.add(letter)
+
+    return len(seen) == num_letters
 
 
 if __name__ == '__main__':
-    assert_answer(False, check_if_pangram("leetcode"))
+    assert_answer(True, check_if_pangram("thequickbrownfoxjumpsoverthelazydog"))

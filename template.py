@@ -1,13 +1,12 @@
 from util import assert_answer
 
 
-def problem(param: str) -> bool:
+def problem(arg):
     """
     Description...
     """
 
     return False
-
 
 
 if __name__ == '__main__':
