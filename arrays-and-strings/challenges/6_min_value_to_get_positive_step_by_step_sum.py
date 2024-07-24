@@ -1,4 +1,3 @@
-import sys
 from typing import List
 
 from util import assert_answer
