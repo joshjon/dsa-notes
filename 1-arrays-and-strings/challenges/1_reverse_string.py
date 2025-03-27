@@ -21,8 +21,8 @@ def reverse_string(s: List[str]) -> None:
     while left < right:
         left_old = s[left]
         s[left] = s[right]
-        left += 1
         s[right] = left_old
+        left += 1
         right -= 1
 
 
