@@ -1,28 +1,35 @@
 import sys
 from typing import List
-
 from util import assert_answer
 
+"""
+You are given an integer array nums consisting of n elements, and an integer k.
 
-class Solution:
-    @staticmethod
-    def find_max_average(nums: List[int], k: int) -> float:
-        left = curr_sum = 0
-        ans = -sys.maxsize
+Find a contiguous subarray whose length is equal to k that has the maximum 
+average value and return this value. Any answer with a calculation error less 
+than 10^-5 will be accepted.
 
-        for right in range(len(nums)):
-            curr_sum += nums[right]
-            if right + 1 < k:
-                continue
+https://leetcode.com/problems/maximum-average-subarray-i/description/
+"""
 
-            while right - left + 1 != k:
-                curr_sum -= nums[left]
-                left += 1
 
-            avg = curr_sum / k
-            ans = max(ans, avg)
+def find_max_average(nums: List[int], k: int) -> float:
+    left = curr_sum = 0
+    ans = -sys.maxsize
 
-        return ans
+    for right in range(len(nums)):
+        curr_sum += nums[right]
+        if right + 1 < k:
+            continue
+
+        while right - left + 1 != k:
+            curr_sum -= nums[left]
+            left += 1
+
+        avg = curr_sum / k
+        ans = max(ans, avg)
+
+    return ans
 
 
 if __name__ == '__main__':
@@ -34,6 +41,5 @@ if __name__ == '__main__':
             -429, 160, -9234, -4444, 3586, -5711, -9506, -79, -4418, -4348, -5891]
 
     want = -594.58065
-    got = Solution.find_max_average(data, 93)
-
+    got = find_max_average(data, 93)
     assert_answer(round(want, 5), round(got, 5), data)
